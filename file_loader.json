@@ -1,0 +1,32 @@
+{
+  "classes": {
+    "framework": [
+      "Bootstrap",
+      "AjaxHandler",
+      "Conn",
+      "Curl",
+      "Email",
+      "ErrorLog",
+      "FileHandler",
+      "tAccentedHandler",
+      "tErrorHandler",
+      "tGeolocation",
+      "tIP",
+      "tRandom",
+      "tTokenGenerator",
+      "tUrl"
+    ],
+    "views":[
+      "public_home_view"
+    ],
+    "controllers": [],
+    "models": [],
+    "exceptions": [
+      "AuthException",
+      "DataFormatException",
+      "EntityExistsException",
+      "FileException",
+      "PermissionException"
+    ]
+  }
+}
