@@ -19,11 +19,9 @@
     "views":[
       "public_home_view"
     ],
-<<<<<<< HEAD
-    "controllers": ["public_home_controller"],
-=======
-    "controllers": [],
->>>>>>> 5bce0c0d98a918e17543fad387a92fe7e4c23234
+    "controllers": [
+      "public_home_controller"
+    ],
     "models": [],
     "exceptions": [
       "AuthException",
