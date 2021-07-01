@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2021. Jún 30. 06:50
+-- Létrehozás ideje: 2021. Júl 01. 07:51
 -- Kiszolgáló verziója: 10.4.10-MariaDB
 -- PHP verzió: 7.4.0
 
@@ -82,18 +82,20 @@ CREATE TABLE IF NOT EXISTS `_page_scripts` (
   `PageID` int(11) DEFAULT NULL,
   `ScriptName` varchar(100) DEFAULT NULL,
   `ScriptType` int(11) NOT NULL,
+  `IsModule` tinyint(1) NOT NULL,
   PRIMARY KEY (`ScriptID`),
   KEY `ScriptType` (`ScriptType`),
   KEY `PageID` (`PageID`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `_page_scripts`
 --
 
-INSERT INTO `_page_scripts` (`ScriptID`, `PageID`, `ScriptName`, `ScriptType`) VALUES
-(1, NULL, 'jquery.min.js', 2),
-(2, NULL, 'sha512.min.js', 2);
+INSERT INTO `_page_scripts` (`ScriptID`, `PageID`, `ScriptName`, `ScriptType`, `IsModule`) VALUES
+(1, NULL, 'jquery.min.js', 2, 0),
+(2, NULL, 'sha512.min.js', 2, 0),
+(18, NULL, 'lazySizes.executer.js', 2, 1);
 
 -- --------------------------------------------------------
 
