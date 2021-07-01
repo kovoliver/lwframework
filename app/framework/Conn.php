@@ -3,15 +3,22 @@ use PDOException;
 use PDO;
 
     class Conn {
-        private static $dbServer = "mysql";
-        private static $host = "127.0.0.1";
-        private static $dbName = "lwframework";
-        private static $charset = "utf8";
-        private static $userName = "root";
-        private static $pass = "";
+        private static $dbServer;
+        private static $host;
+        private static $dbName;
+        private static $charset;
+        private static $userName;
+        private static $pass;
         public static $conn;
 
         public static function ConnectToDb() {
+            self::$dbServer = "mysql";
+            self::$host = SETTINGS["dbHost"];
+            self::$dbName = SETTINGS["dbName"];
+            self::$charset = SETTINGS["dbCharset"];
+            self::$userName = SETTINGS["dbUserName"];
+            self::$pass = SETTINGS["dbPass"];
+            
             try {
                 self::$conn = new PDO(self::$dbServer . ":host=" . self::$host . ";dbname=" . 
                 self::$dbName . ";charset=" . self::$charset . ";", 
