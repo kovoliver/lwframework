@@ -2,7 +2,6 @@
 use FW\Url\tUrl as tUrl;
 use FW\Tools\tTokenGenerator as tTokenGenerator;
 use FW\Database\Conn as Conn;
-use Content\Pages as Pages;
 use PDO;
 
     class Bootstrap {
@@ -53,7 +52,7 @@ use PDO;
         }
 
         private function GetGlobalScripts($scriptType) {
-            $stmt = $this->conn->prepare("SELECT ScriptName FROM _page_scripts WHERE ScriptType = ?");
+            $stmt = $this->conn->prepare("SELECT ScriptName, IsModule FROM _page_scripts WHERE ScriptType = ?");
             $stmt->execute([
                 $scriptType
             ]);
@@ -66,27 +65,31 @@ use PDO;
              * Global scripts
              */
             foreach($this->globalScripts as $script) {
+                $rel = $script["IsModule"] == 1 ? "rel='modulepreload'" : "rel='preload'";
                 $scriptPath =  "{$this->baseUrl}/assets/scripts/app/{$script["ScriptName"]}";
-                echo "<link rel='preload' href='{$scriptPath}' as='script'></link>";
+                echo "<link {$rel} href='{$scriptPath}' as='script'></link>";
             }
             /**
              * Local scripts
              */
             foreach($this->localScripts as $script) {
+                $rel = $script["IsModule"] == 1 ? "rel='modulepreload'" : "rel='preload'";
                 $scriptPath =  "{$this->baseUrl}/assets/scripts/app/{$script["ScriptName"]}";
-                echo "<link rel='modulepreload' href='{$scriptPath}'></link>";
+                echo "<link {$rel} href='{$scriptPath}'></link>";
             }
         }   
 
         public function LoadScripts() {
             foreach($this->globalScripts as $script) {
+                $type = $script["IsModule"] == 1 ? "type='module'" : "";
                 $scriptPath =  "{$this->baseUrl}/assets/scripts/app/{$script["ScriptName"]}";
-                echo "<script src='{$scriptPath}'></script>";
+                echo "<script {$type} src='{$scriptPath}'></script>";
             }
 
             foreach($this->localScripts as $script) {
+                $type = $script["IsModule"] == 1 ? "type='module'" : "";
                 $scriptPath =  "{$this->baseUrl}/assets/scripts/app/{$script["ScriptName"]}";
-                echo "<script type='module' src='{$scriptPath}'></script>";
+                echo "<script {$type} src='{$scriptPath}'></script>";
             }
         }
 
