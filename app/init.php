@@ -18,7 +18,10 @@
         return $hyphens;
     }
 
-    define("LOCALHOSTPATH", "/lwframework");
+    $settings = json_encode(file_get_contents("settings.json"), true);
+
+    define("IS_LOCALHOST", $_SERVER["HTTP_HOST"] == "localhost");
+    define("LOCALHOSTPATH", IS_LOCALHOST ? "/{$settings["relativePath"]}" : "");
     define("ROOT_DIR", $_SERVER["DOCUMENT_ROOT"] . LOCALHOSTPATH);
     FileLoaders\Autoloader::LoadFiles();
 
