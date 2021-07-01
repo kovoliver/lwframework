@@ -1,5 +1,4 @@
 {
-  "classes": {
     "framework": [
       "Bootstrap",
       "AjaxHandler",
@@ -30,5 +29,4 @@
       "FileException",
       "PermissionException"
     ]
-  }
 }
