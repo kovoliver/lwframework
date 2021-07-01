@@ -18,7 +18,7 @@
         return $hyphens;
     }
 
-    $settings = json_encode(file_get_contents("settings.json"), true);
+    $settings = json_decode(file_get_contents("settings.json"), true);
 
     define("IS_LOCALHOST", $_SERVER["HTTP_HOST"] == "localhost");
     define("LOCALHOSTPATH", IS_LOCALHOST ? "/{$settings["relativePath"]}" : "");
