@@ -8,15 +8,15 @@
         private static function GetFileDir($className) {
             $fileDir = "";
 
-            if(in_array($className, self::$filePathsArray["classes"]["controllers"]))
+            if(in_array($className, self::$filePathsArray["controllers"]))
                 $fileDir = "controllers";
-            else if(in_array($className, self::$filePathsArray["classes"]["models"]))
+            else if(in_array($className, self::$filePathsArray["models"]))
                 $fileDir = "models";
-            else if(in_array($className, self::$filePathsArray["classes"]["exceptions"]))
+            else if(in_array($className, self::$filePathsArray["exceptions"]))
                     $fileDir = "exceptions";
-            else if(in_array($className, self::$filePathsArray["classes"]["framework"]))
+            else if(in_array($className, self::$filePathsArray["framework"]))
                 $fileDir = "framework";
-            else if(in_array($className, self::$filePathsArray["classes"]["views"]))
+            else if(in_array($className, self::$filePathsArray["views"]))
                 $fileDir = "views";
             return $fileDir;
         }
