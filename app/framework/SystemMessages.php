@@ -1,5 +1,4 @@
 <?php namespace FW\Messages;
-use Exception;
 
     class SystemMessages {
         private $messages;
