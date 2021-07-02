@@ -143,7 +143,7 @@ use PDO;
             if($this->CheckSceneExists() && $this->CheckPageExists() && file_exists($path)) {
                 require_once $path;
             } else {
-                echo "<h1>Page not found!</h1>";
+                require_once "pages/404.html";
             }
         }
 
