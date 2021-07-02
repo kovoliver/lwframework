@@ -141,9 +141,6 @@ use PDO;
             $path = "pages/{$this->scene}/{$this->page}.php";
 
             if($this->CheckSceneExists() && $this->CheckPageExists() && file_exists($path)) {
-                // $class = 'Content\\Pages\\'.$className;
-                // $object = new $class();
-                // $object->GetPageContent();
                 require_once $path;
             } else {
                 echo "<h1>Page not found!</h1>";
